@@ -72,20 +72,25 @@ def main ():
     #Check if the set is symetric
     for i in range(0,len(alphabet_stack)):
         for j in range(0,len(alphabet_stack)):
-            print(i)
-            print(j)
-            print(grid[i][j])
-            print(grid[j][i])
-            print('___')
             if grid[i][j] == 1 and grid[j][i] != 1 or grid[i][j] != 1 and grid[j][i] == 1:
                 symetric = False
                 break
 
+    #Check if the set is transitive
+    for i in range(0,len(alphabet_stack)):
+        for j in range(0,len(alphabet_stack)):
+            if i != j and grid[i][j] == 1:
+                for k in range(0,len(alphabet_stack)):
+                    if grid[j][k] == 1 and grid[i][k] != 1:
+                        transitive = False
+                        break
+
     print(dot.source)
     print(reflexive)
     print(symetric)
+    print(transitive)
     #dot.render("Lab01.pdf", view=True)
 
 main()
 
-#TEST CASE { (0,0), (0,1), (0,3), (1,0), (1,1), (2,2), (3,0), (3,3) }
+#TEST CASE { (0,0), (0,1), (0,3), (1,0), (1,3), (1,1), (2,2), (3,0), (3,1), (3,3) }
