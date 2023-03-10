@@ -2,7 +2,9 @@ import graphviz
 from collections import deque
 
 dot = graphviz.Digraph(comment = 'Lab 01 Fernando Gomez Martinez')
+dot
 key_stack = deque()
+alphabet_stack = deque()
 node_stack = deque()
 set = []
     
@@ -38,9 +40,18 @@ def main ():
                 
             elif element != ',' and element != ' ' and element != '{':
                 node_stack.append(element)
+                if element not in alphabet_stack:
+                    alphabet_stack.append(element)
 
     print(node_stack)
+    print(alphabet_stack)
+
+    #Creating the nodes 
+    for index in alphabet_stack:
+        dot.node(index)
+
+    print(dot.source)
 
 main()
 
-#{ (0,0), (0,1), (0,3), (1,0), (1,1), (2,2), (3,0), (3,3) }
+#TEST CASE { (0,0), (0,1), (0,3), (1,0), (1,1), (2,2), (3,0), (3,3) }
