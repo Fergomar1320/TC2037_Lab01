@@ -20,6 +20,7 @@ def main ():
     #Reading, storing and validating the input syntax
     if set[0] != '{':
         print('Syntax Error')
+        return
     else:
         key_stack.append(set[0])
         for element in set:
@@ -86,11 +87,23 @@ def main ():
                         break
 
     print(dot.source)
-    print(reflexive)
-    print(symetric)
-    print(transitive)
+    if reflexive:
+        print('-R is reflexive')
+    else:
+        print('-R is NOT reflexive')
+
+    if symetric:
+        print('-R is symetric')
+    else:
+        print('-R is NOT symetric')
+
+    if transitive:
+        print('-R is transitive')
+    else:
+        print('-R is NOT transitive')
+
     #dot.render("Lab01.pdf", view=True)
 
 main()
 
-#TEST CASE { (0,0), (0,1), (0,3), (1,0), (1,3), (1,1), (2,2), (3,0), (3,1), (3,3) }
+#TEST CASE { (0,0), (0,1), (0,3), (1,0), (1,1), (2,2), (3,0), (3,3) }
