@@ -12,7 +12,7 @@ set = []
 def main ():
     print('Enter your string: ')
     set = input()
-    print('You entered: ' + set)
+    #print('You entered: ' + set)
 
     #Reading, storing and validating the input syntax
     if set[0] != '{':
@@ -43,12 +43,17 @@ def main ():
                 if element not in alphabet_stack:
                     alphabet_stack.append(element)
 
-    print(node_stack)
-    print(alphabet_stack)
+    #print(node_stack)
+    #print(alphabet_stack)
 
     #Creating the nodes 
     for index in alphabet_stack:
         dot.node(index)
+
+    #Adding the corresponding edges
+    for i in range (0,len(node_stack),2):
+        #print (node_stack[i] + ',' + node_stack[i+1])
+        dot.edge(node_stack[i], node_stack[i+1])
 
     print(dot.source)
 
