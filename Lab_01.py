@@ -102,7 +102,7 @@ def main ():
     else:
         print('-R is NOT transitive')
 
-    #dot.render("Lab01.pdf", view=True)
+    dot.render("Lab01.pdf", view=True)
 
 main()
 
