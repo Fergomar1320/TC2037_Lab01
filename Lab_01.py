@@ -102,6 +102,11 @@ def main ():
     else:
         print('-R is NOT transitive')
 
+    if symetric and reflexive and transitive:
+        print("-R has an equivalence relation")
+    else:
+        print("-R does NOT have an equivalence relation")
+
     dot.render("Lab01.pdf", view=True)
 
 main()
